@@ -1,4 +1,4 @@
-Nearby
+<h1>Nearby</h1>
 Welcome to the Nearby app! Our goal is to create a platform that allows users to lend or borrow items from their neighbors, reducing the need for buying new items and promoting sustainability.
 
 Getting Started
