@@ -11,19 +11,19 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Installing
 ### Clone the repository
-git clone https://github.com/juliangaspar/nearby-jg.git
+`git clone` https://github.com/juliangaspar/nearby-jg.git
 
 ### Install the dependencies
-bundle install
-yarn install
+`bundle install
+yarn install`
 
 ### Create and migrate the database
-rails db:create
-rails db:migrate
+`rails db:create
+rails db:migrate`
 
 ### Start the server
-rails s
-Visit http://localhost:3000 in your browser to access the application
+`rails s`
+Visit [(http://localhost:3000)] in your browser to access the application
 
 #### Built With
 Ruby on Rails
