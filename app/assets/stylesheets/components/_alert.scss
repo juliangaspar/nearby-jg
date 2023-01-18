@@ -1,4 +1,7 @@
 .alert {
+  position: fixed;
+  display: flex;
+  align-items: center;
   border: 2px solid #F6DB2D;
   position: fixed;
   bottom: 10%;

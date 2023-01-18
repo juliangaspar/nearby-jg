@@ -27,9 +27,8 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.item = @item
     calculate_price_in_token
+    @booking.calculate_end_date
     if @booking.save
-      end_date = @booking.start_date + @booking.amount_of_days
-      @booking.update(end_date: end_date)
       current_user.update(tokens: current_user.tokens - @booking.price_in_token)
       @booking.item.user.update(tokens: current_user.tokens + @booking.price_in_token)
       redirect_to booking_path(@booking), notice: "Successfully booked!"

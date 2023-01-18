@@ -4,9 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["price", "days", "total"]
 
-  connect() {
-  }
-
   pricePreview() {
     const price = this.priceTarget.dataset.price
     const duration = this.daysTarget.value
