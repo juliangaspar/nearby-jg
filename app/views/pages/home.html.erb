@@ -7,12 +7,14 @@
     <h3><strong>DOWN</strong> to <strong>BORROW</strong></h3>
   </div>
 
-<div data-controller="drag-home">
-  <div class="main"  >
+<div data-controller="drag-home"
+     data-action="scroll@window->drag-home#nav"
+     data-user-path="<%= user_signed_in? ? user_path(current_user) : new_user_session_path %>" data-items-path="<%= items_path %>">
+  <div class="main">
     <h1>NEARBY</h1>
 
 
-    <div class="white-circle" >
+    <div class="white-circle">
     </div>
 
     <div class="yellow-circle">
@@ -29,25 +31,3 @@
 
   </div>
 </div>
-
-
-<script>
-  window.onscroll = function(ev) {
-
-    // REDIRECT TO USER'S PROFILE
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-      setTimeout(function() {
-        console.log("allo")
-          window.location.replace("<%= user_signed_in? ? user_path(current_user) : new_user_session_path %>");
-
-        }, 0)
-      }
-       // REDIRECT TO SEARCH (INDEX)
-     else if ((window.scrollY) === 0) {
-      setTimeout(function() {
-          window.location.replace("<%= items_path %>");
-      }, 0)
-     }
-  };
-
-</script>
