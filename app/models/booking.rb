@@ -4,4 +4,8 @@ class Booking < ApplicationRecord
   has_many :reviews
 
   enum status: %i[pending rejected confirmed ended]
+
+  def calculate_end_date
+    self.end_date = start_date + amount_of_days
+  end
 end

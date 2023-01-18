@@ -16,15 +16,10 @@ class ItemsController < ApplicationController
       }
     end
     @markers.compact
-
-    if params[:category].present?
-      @items = @items.where(category: params[:category])
-    end
   end
 
   def show
     @item = Item.find(params[:id])
-
   end
 
   def new
@@ -61,7 +56,6 @@ class ItemsController < ApplicationController
       render :index
     end
   end
-
 
   private
 
