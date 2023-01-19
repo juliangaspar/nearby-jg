@@ -1,10 +1,9 @@
 .forms-container-style {
-  padding-top: 2vh;
-  padding-left: 1vh;
-  padding-bottom: 3vh;
+  padding: 20px;
   width: 100%;
   background-color: #ffffff;
   border-radius: 30px;
+  margin-top: 10%;
   margin-bottom: 20%;
   border: 2px solid black;
   box-shadow: 8px 4px 0px black;
@@ -17,7 +16,6 @@
   width: 100%;
 }
 .form-bg {
-  // background-color: #ededed;
   background-color: #ffffff;
   background-image:  linear-gradient(#a2a2a2 1.5px, transparent 1px), linear-gradient(to right, #a2a2a2 1.5px, #ffffff 1px);
   background-size: 45px 45px;
