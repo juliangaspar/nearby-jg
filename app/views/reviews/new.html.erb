@@ -2,7 +2,6 @@
   <div class="forms-container-style">
     <h2 style="align-text: center;">Reviewing</h2>
       <p style="align-text: center;"> <%= @booking.item.name %> </p>
-
     <%= simple_form_for [@booking, @review] do |f| %>
     <div class= "form-inputs">
         <%= f.input :rating, collection: 0..5 %>
@@ -11,6 +10,6 @@
     <div class="form-actions">
       <%= f.button :submit, :"Add review", {class:"button-large-items"} %>
     </div>
-  <% end %>
+    <% end %>
   </div>
 </div>

@@ -4,13 +4,14 @@ class Item < ApplicationRecord
   has_many :bookings
   has_many :reviews, through: :bookings
 
-  # Pending validation when implemented: item_picture
   CATEGORIES = %w[Tools Electronics Gaming Arts\ &\ Crafts Garden Decoration Sports Camping Other]
   CONDITION = %w[New Good Fair Poor]
+
   validates :name, :category, :condition, :description, :price, presence: true
   validates :description, length: { minimum: 15 }
   validates :category, inclusion: { in: Item::CATEGORIES }
   validates :condition, inclusion: { in: Item::CONDITION }
+  validates :price, numericality: { greater_than: 0 }
 
   def user_location
     user.address
