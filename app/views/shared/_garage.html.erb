@@ -1,0 +1,56 @@
+<div class="user-garage">
+    <div class="box-box">
+      <%= link_to user_showtool_path(user_id: @user.id, category: "Tools") do %>
+        <img src="<%= image_url("tools.png")%>">
+        <p>Tools</p>
+      <% end %>
+    </div>
+    <div class="box-box">
+      <%= link_to user_showtool_path(user_id: @user.id, category: "Sports") do %>
+        <img src="<%= image_url("sports.png")%>">
+        <p>Sports</p>
+      <% end %>
+    </div>
+    <div class="box-box">
+      <%= link_to user_showtool_path(user_id: @user.id, category: "Garden") do %>
+        <img src="<%= image_url("shovel.png")%>">
+        <p>Garden</p>
+      <% end %>
+    </div>
+    <div class="box-box">
+      <%= link_to user_showtool_path(user_id: @user.id, category: "Electronics") do %>
+        <img src="<%= image_url("plug.png")%>" >
+        <p>Electronics</p>
+      <% end %>
+    </div>
+    <div class="box-box">
+      <%= link_to user_showtool_path(user_id: @user.id, category: "Decoration") do %>
+        <img src="<%= image_url("painter.png")%>" >
+        <p>Decoration</p>
+      <% end %>
+    </div>
+    <div class="box-box">
+      <%= link_to user_showtool_path(user_id: @user.id, category: "Gaming") do %>
+        <img src="<%= image_url("console.png")%>" >
+        <p>Gaming</p>
+      <% end %>
+    </div>
+    <div class="box-box">
+      <%= link_to user_showtool_path(user_id: @user.id, category: "Camping") do %>
+        <img src="<%= image_url("camping.png")%>" >
+        <p>Camping</p>
+      <% end %>
+    </div>
+    <div class="box-box">
+      <%= link_to user_showtool_path(user_id: @user.id, category: "Arts\ &\ Crafts") do %>
+        <img src="<%= image_url("plantes-dinterieur.png")%>" >
+        <p>Art</p>
+      <% end %>
+    </div>
+    <div class="box-box">
+      <%= link_to user_showtool_path(user_id: @user.id, category: "Other") do %>
+        <img src="<%= image_url("ajouter.png")%>" >
+        <p>Other</p>
+      <% end %>
+    </div>
+</div>
