@@ -1,4 +1,4 @@
-<%= simple_form_for [@user,@item] do |f| %>
+<%= simple_form_for [@item] do |f| %>
     <div class= "form-inputs">
       <%= f.input :name, required: true %>
       <%= f.input :category, collection: Item::CATEGORIES%>
