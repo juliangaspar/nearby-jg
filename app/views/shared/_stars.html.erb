@@ -1,0 +1,15 @@
+<div class="user-rating">
+<% if @user.average_rating.present? %>
+  <% (1..5).to_a.each do |star| %>
+    <% if star <= @user.average_rating %>
+      <i class="fa-solid fa-star"></i>
+    <% else %>
+      <i class="fa-regular fa-star"></i>
+    <% end %>
+  <% end %>
+<% else %>
+  <% 5.times do %>
+    <i class="fa-regular fa-star"></i>
+  <% end %>
+<% end %>
+</div>

@@ -10,21 +10,7 @@
         <% else %>
           <h1><%= @user.first_name %>'s Garage</h1>
         <% end %>
-        <div class="user-rating">
-        <% if @user.average_rating.present? %>
-          <% (1..5).to_a.each do |star| %>
-            <% if star <= @user.average_rating %>
-              <i class="fa-solid fa-star"></i>
-            <% else %>
-              <i class="fa-regular fa-star"></i>
-            <% end %>
-          <% end %>
-        <% else %>
-          <% 5.times do %>
-            <i class="fa-regular fa-star"></i>
-          <% end %>
-        <% end %>
-        </div>
+        <%= render "shared/stars" %>
         <% if @user == current_user %>
           <p><strong>Tokens </strong><%= current_user.tokens %> <i class="fa-solid fa-coins"></i></p>
         <% end %>
@@ -35,7 +21,7 @@
         <% if @user.photo.key %>
           <%=cl_image_tag @user.photo.key, crop: :crop%>
         <% else %>
-          <img src="https://png.pngtree.com/png-vector/20190114/ourlarge/pngtree-vector-avatar-icon-png-image_313572.jpg">
+          <img src="https://png.pngtree.com/png-vector/20190114/ourlarge/pngtree-vector-avatar-icon-png-image_313572.jpg" class='avatar'>
         <% end %>
       </div>
     </div>
@@ -52,63 +38,8 @@
   </div>
 
   <div class="user-garage-container">
-    <div class="user-garage">
-        <div class="box-box">
-          <%= link_to user_showtool_path(user_id: @user.id, category: "Tools") do %>
-            <img src="<%= image_url("tools.png")%>">
-            <p>Tools</p>
-          <% end %>
-        </div>
-        <div class="box-box">
-          <%= link_to user_showtool_path(user_id: @user.id, category: "Sports") do %>
-            <img src="<%= image_url("sports.png")%>">
-            <p>Sports</p>
-          <% end %>
-        </div>
-        <div class="box-box">
-          <%= link_to user_showtool_path(user_id: @user.id, category: "Garden") do %>
-            <img src="<%= image_url("shovel.png")%>">
-            <p>Garden</p>
-          <% end %>
-        </div>
-        <div class="box-box">
-          <%= link_to user_showtool_path(user_id: @user.id, category: "Electronics") do %>
-            <img src="<%= image_url("plug.png")%>" >
-            <p>Electronics</p>
-          <% end %>
-        </div>
-        <div class="box-box">
-          <%= link_to user_showtool_path(user_id: @user.id, category: "Decoration") do %>
-            <img src="<%= image_url("painter.png")%>" >
-            <p>Decoration</p>
-          <% end %>
-        </div>
-        <div class="box-box">
-          <%= link_to user_showtool_path(user_id: @user.id, category: "Gaming") do %>
-            <img src="<%= image_url("console.png")%>" >
-            <p>Gaming</p>
-          <% end %>
-        </div>
-        <div class="box-box">
-          <%= link_to user_showtool_path(user_id: @user.id, category: "Camping") do %>
-            <img src="<%= image_url("camping.png")%>" >
-            <p>Camping</p>
-          <% end %>
-        </div>
-        <div class="box-box">
-          <%= link_to user_showtool_path(user_id: @user.id, category: "Arts\ &\ Crafts") do %>
-            <img src="<%= image_url("plantes-dinterieur.png")%>" >
-            <p>Art</p>
-          <% end %>
-        </div>
-        <div class="box-box">
-          <%= link_to user_showtool_path(user_id: @user.id, category: "Other") do %>
-            <img src="<%= image_url("ajouter.png")%>" >
-            <p>Other</p>
-          <% end %>
-        </div>
-      </div>
-    </div>
+    <%= render "shared/garage" %>
+  </div>
 
   <div class="review-container">
     <h2><strong>Reviews</strong></h2>
