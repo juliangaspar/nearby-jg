@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_one_attached :photo
   has_many :participants, dependent: :destroy
-  has_many :chatrooms, through: :participants
+  has_many :chatrooms, through: :participants, dependent: :destroy
   has_many :bookings
   has_many :items, dependent: :destroy
   has_many :rented_items, through: :bookings, source: :item, dependent: :destroy

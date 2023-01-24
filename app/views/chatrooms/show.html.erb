@@ -14,27 +14,21 @@
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
-
-    <%= render "messages/message", message: message%>
-
+    <%= render "messages/message", message: message %>
     <% end %>
   </div>
 
-
-  <%= simple_form_for [@chatroom, @message],
-    html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "chat-input" } do |f|
-  %>
+  <%= simple_form_for [@chatroom, @message], html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "chat-input" } do |f| %>
   <div>
-    <%= f.input :content,
+    <%=
+      f.input :content,
       label: false,
       placeholder: "Aa",
       wrapper_html: {class: "chatbar flex-grow-1"}
     %>
   </div>
-
   <div>
     <%= f.submit "Send", class: "button-custom-chatroom" %>
   </div>
   <% end %>
-
 </div>
