@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   def index
     @bookings = current_user.bookings
     @item = Item.all
-    @items_booked = current_user.items.select { |item| item.bookings.present? }
+    @booked_items = current_user.items.select { |item| item.bookings.present? }
   end
 
   def show
@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
     if @booking.save
       current_user.update(tokens: current_user.tokens - @booking.price_in_token)
       @booking.item.user.update(tokens: current_user.tokens + @booking.price_in_token)
-      redirect_to booking_path(@booking), notice: "Successfully booked!"
+      redirect_to user_bookings_path(@booking), notice: "Successfully booked!"
     else
       redirect_to item_path(@item)
     end
@@ -39,7 +39,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking.user = current_user
-    if @booking.update!(status: params[:status])
+    if @booking.update(status: params[:status])
       redirect_to user_bookings_path(current_user)
     else
       redirect_to item_path(booking.item)

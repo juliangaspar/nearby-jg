@@ -10,7 +10,7 @@
             <p class="review-button"><strong>Add review</strong></p>
           <% else %>
             <p></p>
-      <% end %>
+    <% end %>
 
         </div>
           <div class="booking-info">
@@ -25,7 +25,7 @@
     <% end %>
 
   <h1>My items booked</h1>
-    <% @items_booked.each do |item| %>
+    <% @booked_items.each do |item| %>
       <% item.bookings.each do |booking| %>
       <div class="booking-box">
         <div>
@@ -33,15 +33,15 @@
             <%= cl_image_tag "#{booking.item.photo.key}", crop: :fit, class: 'booking-item-pic' %>
             <h5><%= booking.item.name %></h5></a>
           <% if booking.status === 'pending' %>
-            <%= link_to booking_path(booking, status: 'confirmed'), data: {turbo_method: :patch} do %>
+            <%= link_to user_bookings_path(booking, status: 'confirmed'), data: {turbo_method: :patch} do %>
             <p class="review-button"><strong>Accept</strong></p>
-            <% end %>
-            <% else %>
-            <p> </p>
+          <% end %>
+          <% else %>
+            <p></p>
           <% end %>
         </div>
 
-          <div class="booking-info">
+        <div class="booking-info">
           <p class="capitalize"><strong>Status: </strong><%= booking.status %></p>
           <p><strong>Starting date: </strong><br>
           <%= booking.start_date %></p>
